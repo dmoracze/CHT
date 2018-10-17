@@ -11,7 +11,7 @@ trial_data <- function(dir,subj,runs) {
 		for (rr in 1:length(runs)) {
 			count <- count+1
 			run <- paste0('Run',rr)
-			qdat <- read.csv(paste0(dir,'/',ss,'/',ss,'_',run,'.csv'),stringsAsFactors=FALSE)
+			qdat <- read.csv(paste0(dir,'/CHT_',ss,'/CHT_',ss,'_',run,'.csv'),stringsAsFactors=FALSE)
 			subject <- rbind(subject,qdat$ParticipantID) # subject ID
 			question <- rbind(question,qdat$Question) # question
 			response <- rbind(response,qdat$ParticipantsAnswer) # response
