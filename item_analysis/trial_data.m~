@@ -5,7 +5,7 @@ function fin = trial_data(dir,subj,runs)
     fin = [];
     cc = 0;
     for ss = 1:length(subj)
-        display(subj{ss})
+        print(subj{ss}
          load(strcat(dir,'/',subj{ss},'.mat'));
          for rr = 1:length(runs)
              for ii = 1:length(DATA.RunData{1,runs(rr)})
