@@ -1,0 +1,250 @@
+question,response,group1,group2,g1-g2
+I can do the splits.,no,83.33,80,3.33
+I can do the splits.,yes,16.67,20,-3.33
+I collect stamps.,no,91.3,80,11.3
+I collect stamps.,yes,8.7,12,-3.3
+I collect stamps.,skip,NA,8,NA
+I draw pictures.,no,25,16,9
+I draw pictures.,yes,66.67,84,-17.33
+I draw pictures.,skip,8.33,NA,NA
+I go camping.,no,24,36,-12
+I go camping.,yes,72,64,8
+I go camping.,skip,4,NA,NA
+I go hiking.,no,26.09,34.62,-8.53
+I go hiking.,yes,65.22,65.38,-0.159999999999997
+I go hiking.,skip,8.7,NA,NA
+I go on vacation.,yes,100,96,4
+I go on vacation.,skip,NA,4,NA
+I go out to dinner.,no,4.55,20,-15.45
+I go out to dinner.,yes,95.45,76,19.45
+I go out to dinner.,skip,NA,4,NA
+I go swimming.,no,4.17,15.38,-11.21
+I go swimming.,yes,95.83,84.62,11.21
+I go to museums.,no,20,4.35,15.65
+I go to museums.,yes,68,91.3,-23.3
+I go to museums.,skip,12,4.35,7.65
+I go to the movies.,no,5,4.17,0.83
+I go to the movies.,yes,95,91.67,3.33
+I go to the movies.,skip,NA,4.17,NA
+I go to the park.,no,4,16,-12
+I go to the park.,yes,92,72,20
+I go to the park.,skip,4,12,-8
+I go to the zoo.,no,16,28,-12
+I go to the zoo.,yes,80,72,8
+I go to the zoo.,skip,4,NA,NA
+I have a backyard.,no,4.35,NA,NA
+I have a backyard.,yes,95.65,96,-0.349999999999994
+I have a backyard.,skip,NA,4,NA
+I have a bicycle.,no,8.33,14.81,-6.48
+I have a bicycle.,yes,91.67,85.19,6.48
+I have a brother.,no,33.33,48.15,-14.82
+I have a brother.,yes,66.67,48.15,18.52
+I have a brother.,skip,NA,3.7,NA
+I have a dog.,no,53.85,54.17,-0.32
+I have a dog.,yes,46.15,41.67,4.48
+I have a dog.,skip,NA,4.17,NA
+I have a pool.,no,88,80,8
+I have a pool.,yes,8,20,-12
+I have a pool.,skip,4,NA,NA
+I have a sister.,no,45.83,28,17.83
+I have a sister.,yes,54.17,72,-17.83
+I have a turtle.,no,100,82.61,17.39
+I have a turtle.,yes,NA,17.39,NA
+I have a TV.,no,3.85,8.33,-4.48
+I have a TV.,yes,96.15,91.67,4.48
+I have an iPad.,no,60,48,12
+I have an iPad.,yes,40,52,-12
+I have an iPhone.,no,80,57.69,22.31
+I have an iPhone.,yes,12,42.31,-30.31
+I have an iPhone.,skip,8,NA,NA
+I have an XBox.,no,54.17,60,-5.83
+I have an XBox.,yes,45.83,40,5.83
+I have been on a plane.,no,25,NA,NA
+I have been on a plane.,yes,75,100,-25
+I have been on a train.,no,4.55,4,0.55
+I have been on a train.,yes,95.45,84,11.45
+I have been on a train.,skip,NA,12,NA
+I have been to Baltimore.,no,4.35,8,-3.65
+I have been to Baltimore.,yes,95.65,92,3.65000000000001
+I have been to Canada,no,62.5,53.85,8.65
+I have been to Canada,yes,29.17,42.31,-13.14
+I have been to Canada,skip,8.33,3.85,4.48
+I have been to Disney World.,no,65.38,32,33.38
+I have been to Disney World.,yes,34.62,68,-33.38
+I have been to Mexico.,no,87.5,91.3,-3.8
+I have been to Mexico.,yes,8.33,4.35,3.98
+I have been to Mexico.,skip,4.17,4.35,-0.18
+I have board games.,no,9.09,NA,NA
+I have board games.,yes,90.91,96,-5.09
+I have board games.,skip,NA,4,NA
+I have books.,no,NA,4,NA
+I have books.,yes,100,92,8
+I have books.,skip,NA,4,NA
+I have homework.,no,4.17,19.23,-15.06
+I have homework.,yes,95.83,73.08,22.75
+I have homework.,skip,NA,7.69,NA
+I juggle.,no,95.65,84,11.65
+I juggle.,yes,4.35,8,-3.65
+I juggle.,skip,NA,8,NA
+I like animals.,yes,100,100,0
+I like art class.,no,34.78,28,6.78
+I like art class.,yes,60.87,68,-7.13
+I like art class.,skip,4.35,4,0.35
+I like Batman.,no,39.13,20.83,18.3
+I like Batman.,yes,52.17,75,-22.83
+I like Batman.,skip,8.7,4.17,4.53
+I like birthday parties.,no,NA,4.17,NA
+I like birthday parties.,yes,100,95.83,4.17
+I like broccoli.,no,47.83,62.5,-14.67
+I like broccoli.,yes,52.17,33.33,18.84
+I like broccoli.,skip,NA,4.17,NA
+I like cartoons.,no,16.67,7.69,8.98
+I like cartoons.,yes,83.33,92.31,-8.98
+I like cats.,no,30.43,29.17,1.26
+I like cats.,yes,69.57,70.83,-1.26000000000001
+I like chicken fingers.,no,21.74,36,-14.26
+I like chicken fingers.,yes,69.57,56,13.57
+I like chicken fingers.,skip,8.7,8,0.699999999999999
+I like cookies.,yes,96,100,-4
+I like cookies.,skip,4,NA,NA
+I like football.,no,59.09,74.07,-14.98
+I like football.,yes,40.91,22.22,18.69
+I like football.,skip,NA,3.7,NA
+I like french fries.,no,NA,11.54,NA
+I like french fries.,yes,100,76.92,23.08
+I like french fries.,skip,NA,11.54,NA
+I like gym class.,no,13.04,46.15,-33.11
+I like gym class.,yes,82.61,50,32.61
+I like gym class.,skip,4.35,3.85,0.5
+I like iced tea.,no,36,59.26,-23.26
+I like iced tea.,yes,64,40.74,23.26
+I like Iron Man.,no,28,16.67,11.33
+I like Iron Man.,yes,68,79.17,-11.17
+I like Iron Man.,skip,4,4.17,-0.17
+I like Justin Beiber.,no,95.83,84.62,11.21
+I like Justin Beiber.,yes,4.17,7.69,-3.52
+I like Justin Beiber.,skip,NA,7.69,NA
+I like movies.,yes,100,95.83,4.17
+I like movies.,skip,NA,4.17,NA
+I like musicals.,no,52.17,50,2.17
+I like musicals.,yes,39.13,38.46,0.670000000000002
+I like musicals.,skip,8.7,11.54,-2.84
+I like my family.,yes,95.83,95.45,0.379999999999995
+I like my family.,skip,4.17,4.55,-0.38
+I like my friends.,no,2.22,NA,NA
+I like my friends.,yes,97.78,98,-0.219999999999999
+I like my friends.,skip,NA,2,NA
+I like Nickelodeon.,no,56,54.17,1.83
+I like Nickelodeon.,yes,36,45.83,-9.83
+I like Nickelodeon.,skip,8,NA,NA
+I like rainbows.,no,29.17,19.23,9.94
+I like rainbows.,yes,62.5,76.92,-14.42
+I like rainbows.,skip,8.33,3.85,4.48
+I like recess.,no,4.17,12.5,-8.33
+I like recess.,yes,95.83,87.5,8.33
+I like school.,no,37.5,46.15,-8.65
+I like school.,yes,62.5,46.15,16.35
+I like school.,skip,NA,7.69,NA
+I like science class.,no,24,19.23,4.77
+I like science class.,yes,72,76.92,-4.92
+I like science class.,skip,4,3.85,0.15
+I like sleepovers.,no,7.69,24,-16.31
+I like sleepovers.,yes,80.77,72,8.77
+I like sleepovers.,skip,11.54,4,7.54
+I like Starbucks,no,52.17,65.38,-13.21
+I like Starbucks,yes,39.13,26.92,12.21
+I like Starbucks,skip,8.7,7.69,1.01
+I like sushi.,no,68.18,50,18.18
+I like sushi.,yes,31.82,45.83,-14.01
+I like sushi.,skip,NA,4.17,NA
+I like the aquarium.,no,4.17,12,-7.83
+I like the aquarium.,yes,95.83,88,7.83
+I like the beach.,no,3.85,8.33,-4.48
+I like the beach.,yes,92.31,91.67,0.640000000000001
+I like the beach.,skip,3.85,NA,NA
+I like the rain.,no,30.77,40,-9.23
+I like the rain.,yes,61.54,52,9.54
+I like the rain.,skip,7.69,8,-0.31
+I like the snow.,yes,91.67,100,-8.33
+I like the snow.,skip,8.33,NA,NA
+I like the summer.,no,NA,7.69,NA
+I like the summer.,yes,91.67,88.46,3.21000000000001
+I like the summer.,skip,8.33,3.85,4.48
+I like the zoo.,no,20,30.77,-10.77
+I like the zoo.,yes,80,69.23,10.77
+I like to bake cookies.,no,20.83,17.39,3.44
+I like to bake cookies.,yes,70.83,73.91,-3.08
+I like to bake cookies.,skip,8.33,8.7,-0.369999999999999
+I like to dance.,no,72,73.08,-1.08
+I like to dance.,yes,16,19.23,-3.23
+I like to dance.,skip,12,7.69,4.31
+I like to play.,no,4,3.85,0.15
+I like to play.,yes,92,96.15,-4.15000000000001
+I like to play.,skip,4,NA,NA
+I like to read.,no,8.33,19.23,-10.9
+I like to read.,yes,91.67,80.77,10.9
+I like to swim.,no,4.35,20.83,-16.48
+I like to swim.,yes,95.65,79.17,16.48
+I like vacations.,yes,100,92,8
+I like vacations.,skip,NA,8,NA
+I like YouTube.,no,13.64,8.33,5.31
+I like YouTube.,yes,86.36,91.67,-5.31
+I live in a house.,yes,100,96,4
+I live in a house.,skip,NA,4,NA
+I paint pictures.,no,65.22,50,15.22
+I paint pictures.,yes,26.09,46.15,-20.06
+I paint pictures.,skip,8.7,3.85,4.85
+I play baseball.,no,53.85,79.17,-25.32
+I play baseball.,yes,46.15,20.83,25.32
+I play board games.,no,12.5,15.38,-2.88
+I play board games.,yes,87.5,84.62,2.88
+I play checkers.,no,58.33,29.17,29.16
+I play checkers.,yes,41.67,66.67,-25
+I play checkers.,skip,NA,4.17,NA
+I play clarinet.,no,87.5,95.83,-8.33
+I play clarinet.,yes,4.17,4.17,0
+I play clarinet.,skip,8.33,NA,NA
+I play computer games.,no,8.7,NA,NA
+I play computer games.,yes,91.3,95.83,-4.53
+I play computer games.,skip,NA,4.17,NA
+I play football.,no,73.91,88.89,-14.98
+I play football.,yes,26.09,11.11,14.98
+I play guitar.,no,96,88,8
+I play guitar.,yes,4,12,-8
+I play Minecraft.,no,34.62,30.43,4.19
+I play Minecraft.,yes,65.38,69.57,-4.19
+I play on the monkey bars.,no,40,65.38,-25.38
+I play on the monkey bars.,yes,60,26.92,33.08
+I play on the monkey bars.,skip,NA,7.69,NA
+I play piano.,no,62.5,76.92,-14.42
+I play piano.,yes,33.33,23.08,10.25
+I play piano.,skip,4.17,NA,NA
+I play soccer.,no,88,72,16
+I play soccer.,yes,8,28,-20
+I play soccer.,skip,4,NA,NA
+I play video games.,no,11.54,NA,NA
+I play video games.,yes,84.62,96.15,-11.53
+I play video games.,skip,3.85,3.85,0
+I play volleyball.,no,83.33,91.67,-8.34
+I play volleyball.,yes,4.17,4.17,0
+I play volleyball.,skip,12.5,4.17,8.33
+I read books.,no,4.35,15.38,-11.03
+I read books.,yes,95.65,80.77,14.88
+I read books.,skip,NA,3.85,NA
+I read magazines.,no,45.45,44,1.45
+I read magazines.,yes,54.55,52,2.55
+I read magazines.,skip,NA,4,NA
+I ride my bike.,no,29.17,26.92,2.25
+I ride my bike.,yes,70.83,69.23,1.59999999999999
+I ride my bike.,skip,NA,3.85,NA
+I ride the bus.,no,31.82,40.91,-9.09
+I ride the bus.,yes,68.18,59.09,9.09
+I watch Netflix.,no,29.17,34.62,-5.45
+I watch Netflix.,yes,70.83,65.38,5.45
+I watch tv.,no,8.7,12,-3.3
+I watch tv.,yes,91.3,88,3.3
+I watch YouTube.,no,9.52,7.69,1.83
+I watch YouTube.,yes,90.48,92.31,-1.83
+My favorite color is blue.,no,60.87,56.52,4.34999999999999
+My favorite color is blue.,yes,39.13,39.13,0
+My favorite color is blue.,skip,NA,4.35,NA
