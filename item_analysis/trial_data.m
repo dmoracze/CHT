@@ -7,6 +7,9 @@ function fin = trial_data(dir,subj,runs)
     for ss = 1:length(subj)
         display(subj{ss})
          load(strcat(dir,'/',subj{ss},'.mat'));
+         if length(DATA.RunData) < 4
+             runs = [1,2,3];
+         end
          for rr = 1:length(runs)
              for ii = 1:length(DATA.RunData{1,runs(rr)})
                 cc = cc+1;
@@ -17,9 +20,6 @@ function fin = trial_data(dir,subj,runs)
              end
          end
     end
-    % subset to remove the disagree trials
-    dis = find(cell2mat(fin(:,4)) == 3); % find disagree
-    fin(dis,:) = []; % remove disagree
 
             
 

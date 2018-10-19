@@ -18,10 +18,7 @@ trial_data <- function(dir,subj,runs) {
 			feedback <- rbind(feedback,qdat$Feedback) # outcome
 			
 		}
-		qr <- data.frame(subj=melt(subject)$value,question=melt(question)$value,response=melt(response)$value,feedback=melt(feedback)$value)
-		dis <- filter(qr,feedback==3)
-		dis <- droplevels(dis$question)
-		fin <- qr %>% filter(!question %in% levels(dis))
+		fin <- data.frame(subj=melt(subject)$value,question=melt(question)$value,response=melt(response)$value,feedback=melt(feedback)$value)
 	}
 	return(fin)
 }
