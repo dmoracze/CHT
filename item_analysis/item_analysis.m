@@ -28,6 +28,32 @@ dlmcell('group1.matdat.csv',fin,',')
 
 clear
 
+%%
+top_dir = '/Volumes/research$/redcay/DSCN Lab/Experiments/CAT/CHT_Scan/CHT_Data/mat files';
+script_dir = '~/iCloud/code/CHT/item_analysis/';
+cd(script_dir)
+
+% group1 - matched
+% four runs (1,2,3,4)
+subj = {'RED_RL_106', 'RED_CAT_145', 'RED_RL_165', 'RED_RL_155', 'RED_CAT_115', 'RED_CAT_133', 'RED_CAT_132', 'RED_RL_157', 'RED_CHT_ASD_169', 'RED_RL_160', 'RED_CAT_117', 'RED_RL_130', 'RED_CHT_ASD_177', 'RED_CAT_111', 'RED_CHT_ASD_168', 'RED_CAT_107', 'RED_CAT_110'};
+runs = [1,2,3,4];
+four = trial_data(top_dir,subj,runs);
+
+% three runs (1,2,3)
+subj = {'RED_RL_151', 'RED_CHT_ASD_170', 'RED_RL_119', 'RED_CAT_128', 'RED_CAT_124', 'RED_CHT_ASD_171'};
+runs = [1,2,3];
+three123 = trial_data(top_dir,subj,runs);
+
+% three runs (1,2,4)
+subj = {'RED_CAT_127', 'RED_CAT_116', 'RED_CAT_104'};
+runs = [1,2,4];
+three124 = trial_data(top_dir,subj,runs);
+
+fin = vertcat(four,three123,three124);
+dlmcell('group1.matched.matdat.csv',fin,',') 
+
+clear
+
 %% 
 top_dir = '/Volumes/research$/redcay/DSCN Lab/Experiments/CAT/CHT_Scan/CHT_Data/mat files';
 script_dir = '~/iCloud/code/CHT/item_analysis/';
