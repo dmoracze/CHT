@@ -1,0 +1,657 @@
+#!/bin/tcsh
+
+# set top directory
+set dir = /export/data/brain1/CHT
+# set timing directory
+set timing = $dir/BehavioralCORRECTED
+# where do you want the timing files?
+set outT = $dir/Dustin/gPPI/dissertation/condition_motion/times
+# where do you want the motion parameters
+set outM = $dir/Dustin/gPPI/dissertation/condition_motion/mopar
+
+
+# there are many unique participants, so we'll have to do a bunch of different scenarios...
+###########################################################################################################
+# # 4 run subjects 168 volumes 
+set subj = (RED_CAT_107 RED_CAT_109 RED_CAT_110 RED_CAT_111 RED_CAT_115 RED_CAT_117 RED_CAT_118 RED_CAT_123 RED_CAT_132 RED_CAT_133 RED_CAT_134 RED_CAT_135 RED_CAT_140 RED_CAT_144 RED_CAT_145 RED_CAT_147 RED_CAT_150 RED_CAT_157 RED_CAT_160 RED_CAT_164 RED_CAT_168 RED_CAT_170 RED_CAT_173 RED_CAT_174 RED_CHT_ASD_168 RED_CHT_ASD_169 RED_CHT_ASD_177 RED_LL_167 RED_LL_187 RED_RL_106 RED_RL_111 RED_RL_118 RED_RL_124 RED_RL_128 RED_RL_130 RED_RL_146 RED_RL_150 RED_RL_152 RED_RL_155 RED_RL_157 RED_RL_158 RED_RL_159 RED_RL_160 RED_RL_163 RED_RL_165 RED_CAT_201 RED_CAT_205 RED_CAT_212 RED_CAT_216 RED_CAT_217 RED_CAT_218 RED_CAT_224 RED_CAT_226 RED_CAT_228 RED_CAT_229 RED_CAT_230 RED_CAT_234 RED_CHT_ASD_202 RED_CHT_ASD_209 RED_CHT_ASD_211 RED_CHT_ASD_216 RED_CHT_ASD_218 RED_CHT_ASD_220 RED_CHT_ASD_223 RED_CHT_ASD_227)
+
+set runs = (CHT_1 CHT_2 CHT_3 CHT_4)
+
+
+## Timing 
+cd $outT
+echo 'Timing...'
+foreach s ($subj)
+	echo $s
+# generate timing TR vectors, will create 1 file per run
+	# peer initiation
+	timing_tool.py -timing $timing/${s}_Peer_Initiation.txt 		\
+		-timing_to_1D $s.peer.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 369.6 	\
+		-stim_dur 4 -show_timing
+	# computer initiation
+	timing_tool.py -timing $timing/${s}_Computer_Initiation.txt 		\
+		-timing_to_1D $s.comp.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 369.6 	\
+		-stim_dur 4 -show_timing
+	# peer agree
+	timing_tool.py -timing $timing/${s}_Peer_Agrees.txt 			\
+		-timing_to_1D $s.peer.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 369.6 	\
+		-stim_dur 2 -show_timing
+	echo 'peer away'
+	# peer away
+	timing_tool.py -timing $timing/${s}_Peer_Away.txt 			\
+		-timing_to_1D $s.peer.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 369.6 	\
+		-stim_dur 2 -show_timing
+	echo 'computer agree'
+	# computer agree
+	timing_tool.py -timing $timing/${s}_Computer_Agrees.txt 		\
+		-timing_to_1D $s.comp.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 369.6 	\
+		-stim_dur 2 -show_timing
+	# computer away
+	timing_tool.py -timing $timing/${s}_Computer_Away.txt 			\
+		-timing_to_1D $s.comp.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 369.6 	\
+		-stim_dur 2 -show_timing
+end
+
+## Motion
+cd $outM
+echo 'Motion...'
+foreach s ($subj)
+	echo $s
+	foreach r ($runs)
+		1d_tool.py 							\
+			-infile $dir/$s/bold/${s}_$r.MoPar.1D 			\
+			-derivative 						\
+			-collapse_cols euclidean_norm 				\
+			-write ${s}_$r.enorm.1D
+	end
+	cat ${s}_CHT_?.enorm.1D > ${s}_CHTall.enorm.1D
+end
+
+
+###########################################################################################################
+# 4 run subjects 170 volumes
+set subj = (RED_CAT_157 RED_CAT_164 RED_CAT_168 RED_CAT_170 RED_CAT_173 RED_CAT_174  RED_CAT_242 RED_CAT_248)
+
+set runs = (CHT_1 CHT_2 CHT_3 CHT_4)
+
+
+## Timing 
+cd $outT
+echo 'Timing...'
+foreach s ($subj)
+	echo $s
+# generate timing TR vectors, will create 1 file per run
+	# peer initiation
+	timing_tool.py -timing $timing/${s}_Peer_Initiation.txt 		\
+		-timing_to_1D $s.peer.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 374 374 374 374 		\
+		-stim_dur 4 -show_timing
+	# computer initiation
+	timing_tool.py -timing $timing/${s}_Computer_Initiation.txt 		\
+		-timing_to_1D $s.comp.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 374 374 374 374 		\
+		-stim_dur 4 -show_timing
+	# peer agree
+	timing_tool.py -timing $timing/${s}_Peer_Agrees.txt 			\
+		-timing_to_1D $s.peer.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 374 374 374 374 		\
+		-stim_dur 2 -show_timing
+	echo 'peer away'
+	# peer away
+	timing_tool.py -timing $timing/${s}_Peer_Away.txt 			\
+		-timing_to_1D $s.peer.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 374 374 374 374 		\
+		-stim_dur 2 -show_timing
+	echo 'computer agree'
+	# computer agree
+	timing_tool.py -timing $timing/${s}_Computer_Agrees.txt 		\
+		-timing_to_1D $s.comp.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 374 374 374 374 		\
+		-stim_dur 2 -show_timing
+	# computer away
+	timing_tool.py -timing $timing/${s}_Computer_Away.txt 			\
+		-timing_to_1D $s.comp.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 374 374 374 374 		\
+		-stim_dur 2 -show_timing
+end
+
+## Motion
+cd $outM
+echo 'Motion...'
+foreach s ($subj)
+	echo $s
+	foreach r ($runs)
+		1d_tool.py 							\
+			-infile $dir/$s/bold/${s}_$r.MoPar.1D 			\
+			-derivative 						\
+			-collapse_cols euclidean_norm 				\
+			-write ${s}_$r.enorm.1D
+	end
+	cat ${s}_CHT_?.enorm.1D > ${s}_CHTall.enorm.1D
+end
+
+
+###########################################################################################################
+# 3 run subjects 168 volumes (1,2,3)
+set subj = (RED_CAT_124 RED_CAT_128 RED_CAT_142 RED_CAT_148 RED_CHT_ASD_170 RED_CHT_ASD_171 RED_RL_119 RED_RL_162 RED_RL_151 RED_CHT_ASD_213 RED_CHT_ASD_215 RED_CHT_ASD_225)
+
+set runs = (CHT_1 CHT_2 CHT_3)
+
+
+## Timing 
+cd $outT
+echo 'Timing...'
+foreach s ($subj)
+	echo $s
+# generate timing TR vectors, will create 1 file per run
+	# peer initiation
+	timing_tool.py -timing $timing/${s}_Peer_Initiation.txt 		\
+		-timing_to_1D $s.peer.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# computer initiation
+	timing_tool.py -timing $timing/${s}_Computer_Initiation.txt 		\
+		-timing_to_1D $s.comp.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# peer agree
+	timing_tool.py -timing $timing/${s}_Peer_Agrees.txt 			\
+		-timing_to_1D $s.peer.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'peer away'
+	# peer away
+	timing_tool.py -timing $timing/${s}_Peer_Away.txt 			\
+		-timing_to_1D $s.peer.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'computer agree'
+	# computer agree
+	timing_tool.py -timing $timing/${s}_Computer_Agrees.txt 		\
+		-timing_to_1D $s.comp.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	# computer away
+	timing_tool.py -timing $timing/${s}_Computer_Away.txt 			\
+		-timing_to_1D $s.comp.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+end
+
+## Motion
+cd $outM
+echo 'Motion...'
+foreach s ($subj)
+	echo $s
+	foreach r ($runs)
+		1d_tool.py 							\
+			-infile $dir/$s/bold/${s}_$r.MoPar.1D 			\
+			-derivative 						\
+			-collapse_cols euclidean_norm 				\
+			-write ${s}_$r.enorm.1D
+	end
+	cat ${s}_CHT_?.enorm.1D > ${s}_CHTall.enorm.1D
+end
+
+
+###########################################################################################################
+# 3 run subjects 170 volumes (1,2,3)
+set subj = (RED_CAT_241)
+
+set runs = (CHT_1 CHT_2 CHT_3)
+
+
+## Timing 
+cd $outT
+echo 'Timing...'
+foreach s ($subj)
+	echo $s
+# generate timing TR vectors, will create 1 file per run
+	# peer initiation
+	timing_tool.py -timing $timing/${s}_Peer_Initiation.txt 		\
+		-timing_to_1D $s.peer.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 374 374 374 			\
+		-stim_dur 4 -show_timing
+	# computer initiation
+	timing_tool.py -timing $timing/${s}_Computer_Initiation.txt 		\
+		-timing_to_1D $s.comp.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 374 374 374 			\
+		-stim_dur 4 -show_timing
+	# peer agree
+	timing_tool.py -timing $timing/${s}_Peer_Agrees.txt 			\
+		-timing_to_1D $s.peer.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 374 374 374 			\
+		-stim_dur 2 -show_timing
+	echo 'peer away'
+	# peer away
+	timing_tool.py -timing $timing/${s}_Peer_Away.txt 			\
+		-timing_to_1D $s.peer.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 374 374 374 			\
+		-stim_dur 2 -show_timing
+	echo 'computer agree'
+	# computer agree
+	timing_tool.py -timing $timing/${s}_Computer_Agrees.txt 		\
+		-timing_to_1D $s.comp.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 374 374 374 			\
+		-stim_dur 2 -show_timing
+	# computer away
+	timing_tool.py -timing $timing/${s}_Computer_Away.txt 			\
+		-timing_to_1D $s.comp.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 374 374 374 			\
+		-stim_dur 2 -show_timing
+end
+
+## Motion
+cd $outM
+echo 'Motion...'
+foreach s ($subj)
+	echo $s
+	foreach r ($runs)
+		1d_tool.py 							\
+			-infile $dir/$s/bold/${s}_$r.MoPar.1D 			\
+			-derivative 						\
+			-collapse_cols euclidean_norm 				\
+			-write ${s}_$r.enorm.1D
+	end
+	cat ${s}_CHT_?.enorm.1D > ${s}_CHTall.enorm.1D
+end
+
+
+
+###########################################################################################################
+# 3 run subjects 168 volumes (1,2,4)
+set subj = (RED_CAT_104 RED_CAT_116 RED_CAT_127 RED_CAT_139 RED_RL_153 RED_RL_154 RED_CHT_ASD_201 RED_CAT_207)
+
+set runs = (CHT_1 CHT_2 CHT_4)
+
+
+## Timing 
+cd $outT
+echo 'Timing...'
+foreach s ($subj)
+	echo $s
+# generate timing TR vectors, will create 1 file per run
+	# peer initiation
+	timing_tool.py -timing $timing/${s}_Peer_Initiation.txt 		\
+		-timing_to_1D $s.peer.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# computer initiation
+	timing_tool.py -timing $timing/${s}_Computer_Initiation.txt 		\
+		-timing_to_1D $s.comp.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# peer agree
+	timing_tool.py -timing $timing/${s}_Peer_Agrees.txt 			\
+		-timing_to_1D $s.peer.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'peer away'
+	# peer away
+	timing_tool.py -timing $timing/${s}_Peer_Away.txt 			\
+		-timing_to_1D $s.peer.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'computer agree'
+	# computer agree
+	timing_tool.py -timing $timing/${s}_Computer_Agrees.txt 		\
+		-timing_to_1D $s.comp.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	# computer away
+	timing_tool.py -timing $timing/${s}_Computer_Away.txt 			\
+		-timing_to_1D $s.comp.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+end
+
+## Motion
+cd $outM
+echo 'Motion...'
+foreach s ($subj)
+	echo $s
+	foreach r ($runs)
+		1d_tool.py 							\
+			-infile $dir/$s/bold/${s}_$r.MoPar.1D 			\
+			-derivative 						\
+			-collapse_cols euclidean_norm 				\
+			-write ${s}_$r.enorm.1D
+	end
+	cat ${s}_CHT_?.enorm.1D > ${s}_CHTall.enorm.1D
+end
+
+
+###########################################################################################################
+# # 3 run subjects 168 volumes (1,3,4)
+set subj = (RED_CAT_149 RED_RL_126)
+
+set runs = (CHT_1 CHT_3 CHT_4)
+
+## Timing 
+cd $outT
+echo 'Timing...'
+foreach s ($subj)
+	echo $s
+# generate timing TR vectors, will create 1 file per run
+	# peer initiation
+	timing_tool.py -timing $timing/${s}_Peer_Initiation.txt 		\
+		-timing_to_1D $s.peer.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# computer initiation
+	timing_tool.py -timing $timing/${s}_Computer_Initiation.txt 		\
+		-timing_to_1D $s.comp.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# peer agree
+	timing_tool.py -timing $timing/${s}_Peer_Agrees.txt 			\
+		-timing_to_1D $s.peer.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'peer away'
+	# peer away
+	timing_tool.py -timing $timing/${s}_Peer_Away.txt 			\
+		-timing_to_1D $s.peer.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'computer agree'
+	# computer agree
+	timing_tool.py -timing $timing/${s}_Computer_Agrees.txt 		\
+		-timing_to_1D $s.comp.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	# computer away
+	timing_tool.py -timing $timing/${s}_Computer_Away.txt 			\
+		-timing_to_1D $s.comp.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+end
+
+## Motion
+cd $outM
+echo 'Motion...'
+foreach s ($subj)
+	echo $s
+	foreach r ($runs)
+		1d_tool.py 							\
+			-infile $dir/$s/bold/${s}_$r.MoPar.1D 			\
+			-derivative 						\
+			-collapse_cols euclidean_norm 				\
+			-write ${s}_$r.enorm.1D
+	end
+	cat ${s}_CHT_?.enorm.1D > ${s}_CHTall.enorm.1D
+end
+
+###########################################################################################################
+# 3 run subjects 168 volumes (2,3,4)
+set subj = (RED_CAT_220)
+
+set runs = (CHT_2 CHT_3 CHT_4)
+
+## Timing 
+cd $outT
+echo 'Timing...'
+foreach s ($subj)
+	echo $s
+# generate timing TR vectors, will create 1 file per run
+	# peer initiation
+	timing_tool.py -timing $timing/${s}_Peer_Initiation.txt 		\
+		-timing_to_1D $s.peer.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# computer initiation
+	timing_tool.py -timing $timing/${s}_Computer_Initiation.txt 		\
+		-timing_to_1D $s.comp.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# peer agree
+	timing_tool.py -timing $timing/${s}_Peer_Agrees.txt 			\
+		-timing_to_1D $s.peer.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'peer away'
+	# peer away
+	timing_tool.py -timing $timing/${s}_Peer_Away.txt 			\
+		-timing_to_1D $s.peer.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'computer agree'
+	# computer agree
+	timing_tool.py -timing $timing/${s}_Computer_Agrees.txt 		\
+		-timing_to_1D $s.comp.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	# computer away
+	timing_tool.py -timing $timing/${s}_Computer_Away.txt 			\
+		-timing_to_1D $s.comp.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+end
+
+## Motion
+cd $outM
+echo 'Motion...'
+foreach s ($subj)
+	echo $s
+	foreach r ($runs)
+		1d_tool.py 							\
+			-infile $dir/$s/bold/${s}_$r.MoPar.1D 			\
+			-derivative 						\
+			-collapse_cols euclidean_norm 				\
+			-write ${s}_$r.enorm.1D
+	end
+	cat ${s}_CHT_?.enorm.1D > ${s}_CHTall.enorm.1D
+end
+
+
+###########################################################################################################
+# 3 run subjects 168 volumes (2,3,4) # RED_CHT_ASD_212
+set subj = (RED_CHT_ASD_212)
+
+set runs = (CHT_2 CHT_3 CHT_4)
+set timing = /export/data/brain1/CHT/Dustin/gPPI/dissertation/RED_CHT_ASD_212_timing
+
+## Timing 
+cd $outT
+echo 'Timing...'
+foreach s ($subj)
+	echo $s
+# generate timing TR vectors, will create 1 file per run
+	# peer initiation
+	timing_tool.py -timing $timing/${s}_Peer_Initiation.txt 		\
+		-timing_to_1D $s.peer.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# computer initiation
+	timing_tool.py -timing $timing/${s}_Computer_Initiation.txt 		\
+		-timing_to_1D $s.comp.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# peer agree
+	timing_tool.py -timing $timing/${s}_Peer_Agrees.txt 			\
+		-timing_to_1D $s.peer.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'peer away'
+	# peer away
+	timing_tool.py -timing $timing/${s}_Peer_Away.txt 			\
+		-timing_to_1D $s.peer.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'computer agree'
+	# computer agree
+	timing_tool.py -timing $timing/${s}_Computer_Agrees.txt 		\
+		-timing_to_1D $s.comp.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	# computer away
+	timing_tool.py -timing $timing/${s}_Computer_Away.txt 			\
+		-timing_to_1D $s.comp.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+end
+
+## Motion
+cd $outM
+echo 'Motion...'
+foreach s ($subj)
+	echo $s
+	foreach r ($runs)
+		1d_tool.py 							\
+			-infile $dir/$s/bold/${s}_$r.MoPar.1D 			\
+			-derivative 						\
+			-collapse_cols euclidean_norm 				\
+			-write ${s}_$r.enorm.1D
+	end
+	cat ${s}_CHT_?.enorm.1D > ${s}_CHTall.enorm.1D
+end
+
+###########################################################################################################
+# 3 run subjects 168 volumes (2,3,4) # RED_CHT_ASD_224
+set subj = (RED_CHT_ASD_224)
+
+set runs = (CHT_2 CHT_3 CHT_4)
+set timing = /export/data/brain1/CHT/Dustin/gPPI/dissertation/RED_CHT_ASD_224_timing
+
+## Timing 
+cd $outT
+echo 'Timing...'
+foreach s ($subj)
+	echo $s
+# generate timing TR vectors, will create 1 file per run
+	# peer initiation
+	timing_tool.py -timing $timing/${s}_Peer_Initiation.txt 		\
+		-timing_to_1D $s.peer.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# computer initiation
+	timing_tool.py -timing $timing/${s}_Computer_Initiation.txt 		\
+		-timing_to_1D $s.comp.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# peer agree
+	timing_tool.py -timing $timing/${s}_Peer_Agrees.txt 			\
+		-timing_to_1D $s.peer.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'peer away'
+	# peer away
+	timing_tool.py -timing $timing/${s}_Peer_Away.txt 			\
+		-timing_to_1D $s.peer.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'computer agree'
+	# computer agree
+	timing_tool.py -timing $timing/${s}_Computer_Agrees.txt 		\
+		-timing_to_1D $s.comp.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	# computer away
+	timing_tool.py -timing $timing/${s}_Computer_Away.txt 			\
+		-timing_to_1D $s.comp.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+end
+
+## Motion
+cd $outM
+echo 'Motion...'
+foreach s ($subj)
+	echo $s
+	foreach r ($runs)
+		1d_tool.py 							\
+			-infile $dir/$s/bold/${s}_$r.MoPar.1D 			\
+			-derivative 						\
+			-collapse_cols euclidean_norm 				\
+			-write ${s}_$r.enorm.1D
+	end
+	cat ${s}_CHT_?.enorm.1D > ${s}_CHTall.enorm.1D
+end
+
+
+
+###########################################################################################################
+# # 3 run subjects 168 volumes (1,3,4) ## RED_CAT_155
+set subj = (RED_CAT_155)
+
+set runs = (CHT_1 CHT_3 CHT_4)
+set timing = /export/data/brain1/CHT/Dustin/gPPI/dissertation/RED_CAT_155_timing
+
+## Timing 
+cd $outT
+echo 'Timing...'
+foreach s ($subj)
+	echo $s
+# generate timing TR vectors, will create 1 file per run
+	# peer initiation
+	timing_tool.py -timing $timing/${s}_Peer_Initiation.txt 		\
+		-timing_to_1D $s.peer.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# computer initiation
+	timing_tool.py -timing $timing/${s}_Computer_Initiation.txt 		\
+		-timing_to_1D $s.comp.init.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 4 -show_timing
+	# peer agree
+	timing_tool.py -timing $timing/${s}_Peer_Agrees.txt 			\
+		-timing_to_1D $s.peer.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'peer away'
+	# peer away
+	timing_tool.py -timing $timing/${s}_Peer_Away.txt 			\
+		-timing_to_1D $s.peer.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	echo 'computer agree'
+	# computer agree
+	timing_tool.py -timing $timing/${s}_Computer_Agrees.txt 		\
+		-timing_to_1D $s.comp.agree.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+	# computer away
+	timing_tool.py -timing $timing/${s}_Computer_Away.txt 			\
+		-timing_to_1D $s.comp.away.1D 					\
+		-tr 2.2 -min_frac 0.25 -run_len 369.6 369.6 369.6 		\
+		-stim_dur 2 -show_timing
+end
+
+## Motion
+cd $outM
+echo 'Motion...'
+foreach s ($subj)
+	echo $s
+	foreach r ($runs)
+		1d_tool.py 							\
+			-infile $dir/$s/bold/${s}_$r.MoPar.1D 			\
+			-derivative 						\
+			-collapse_cols euclidean_norm 				\
+			-write ${s}_$r.enorm.1D
+	end
+	cat ${s}_CHT_?.enorm.1D > ${s}_CHTall.enorm.1D
+end
+
+exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
